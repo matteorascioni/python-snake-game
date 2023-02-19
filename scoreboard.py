@@ -25,8 +25,8 @@ class Scoreboard(Turtle):
         """ This function keeps track of the user's highest score achieved in the previous game and resets the score variable to 0 as the scoreboard updates """
         if self.score > self.high_score:
             self.high_score = self.score
-            with open('data.txt', mode='w') as data:
-                data.write(f"{self.high_score}")
+            with open('data.txt', mode='w') as f:
+                f.write(f"{self.high_score}")
         self.score = 0
         self.update_scoreboard()
 
