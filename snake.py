@@ -26,6 +26,14 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    def reset(self):
+        """ This function dispatches all snake segments by sending them out (check coordinates). cleans up the list after which it creates another snake. """
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def extend(self):
         """ This function extends the length of the snake when eats food """
         self.add_segment(self.segments[-1].position())
